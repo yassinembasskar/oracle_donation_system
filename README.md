@@ -295,5 +295,18 @@ Each member is a **vertical full‑stack owner** for their module (DB + API + UI
 
 ---
 
+## 🚀 Frontend Setup (React + Vite)
+
+1. `cd frontend`
+2. Install dependencies:
+   - With NPM: `npm install`
+   - With Yarn: `yarn install`
+   - With PNPM: `pnpm install`
+3. Start the development server:
+   - `npm run dev` (or `yarn dev` / `pnpm dev`)
+4. Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+> The `node_modules`, `dist`, and local config files in `frontend/` are already in `.gitignore`—no need to worry about accidentally committing these!
+
 > This project is intentionally heavy on Oracle to demonstrate capabilities: constraints, triggers, PL/SQL packages, redaction, materialized views, and indexing strategies, all integrated in a real full‑stack web app.
 
