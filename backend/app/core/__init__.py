@@ -1,0 +1,1 @@
+# ici on mettra plus tard l'authentification, JWT, etc.

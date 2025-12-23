@@ -1,0 +1,1 @@
+# plus tard on pourra définir des modèles Python liés aux tables Oracle
