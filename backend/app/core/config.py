@@ -1,18 +1,18 @@
-import os
-from dotenv import load_dotenv
+from pydantic_settings import BaseSettings
+from functools import lru_cache
 
-load_dotenv()
+class Settings(BaseSettings):
+    APP_NAME: str = "OracleDonationBackend"
+    ENV: str = "development"
+    DATABASE_URL: str
 
-class Settings:
-    ORACLE_USER: str = os.getenv("ORACLE_USER")
-    ORACLE_PASSWORD: str = os.getenv("ORACLE_PASSWORD")
-    ORACLE_HOST: str = os.getenv("ORACLE_HOST")
-    ORACLE_PORT: str = os.getenv("ORACLE_PORT")
-    ORACLE_SERVICE: str = os.getenv("ORACLE_SERVICE")
-    SQLALCHEMY_DATABASE_URL: str = (
-        f"oracle+oracledb://{ORACLE_USER}:{ORACLE_PASSWORD}@{ORACLE_HOST}:{ORACLE_PORT}/?service_name={ORACLE_SERVICE}"
-        if ORACLE_USER and ORACLE_PASSWORD and ORACLE_HOST and ORACLE_PORT and ORACLE_SERVICE else None
-    )
+    class Config:
+        env_file = ".env"
+        env_file_encoding = "utf-8"
 
-settings = Settings()
+@lru_cache
+def get_settings():
+    return Settings()
+
+settings = get_settings()
 
